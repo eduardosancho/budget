@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe Category, type: :model do
   describe 'Test validations' do
     before(:all) do
-      @user = User.new(name: 'Arnold')
+      @user = User.new(name: 'Arnold', email: 'arnold@email.com', password: '123456', password_confirmation: '123456')
+      @user.skip_confirmation!
       @user.save
     end
 

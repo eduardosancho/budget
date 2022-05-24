@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe Categorization, type: :model do
   describe 'Test associations' do
     before(:all) do
-      @user = User.create(name: 'Arnold')
+      @user = User.new(name: 'Arnold', email: 'arnold@email.com', password: '123456', password_confirmation: '123456')
+      @user.skip_confirmation!
+      @user.save
 
       @category = Category.create(user: @user, name: 'Medical')
 
