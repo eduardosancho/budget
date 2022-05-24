@@ -14,6 +14,9 @@
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: "#{name} generic-alert" %>
     <% end -%>
+    <% if user_signed_in? %>
+      <%= button_to "Log Out", destroy_user_session_path, method: :delete  %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
