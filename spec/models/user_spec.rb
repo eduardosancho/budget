@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'Test validations' do
-    subject { User.new(name: 'Arnold', email: 'arnold@email.com', password: '123456', password_confirmation: '123456') }
+    subject { User.new(name: 'Willy', email: 'willy@email.com', password: '123456', password_confirmation: '123456') }
 
-    before { 
+    before do
       subject.skip_confirmation!
-      subject.save 
-    }
+      subject.save
+    end
 
     it 'should be valid if the name contains text' do
       expect(subject).to be_valid
@@ -17,12 +17,12 @@ RSpec.describe User, type: :model do
       subject.name = nil
       expect(subject).to_not be_valid
     end
-    
+
     it 'should not be valid if email is nil' do
       subject.email = nil
       expect(subject).to_not be_valid
     end
-    
+
     it 'should not be valid if password has less than 6 characters' do
       subject.password = 'abc'
       expect(subject).to_not be_valid
