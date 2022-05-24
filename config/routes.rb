@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       root "categories#index", as: :authenticated_root
     end
     unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
+      root 'users/splash/', as: :unauthenticated_root, action: :new_splash, controller: 'categories'
     end
   end
 end
