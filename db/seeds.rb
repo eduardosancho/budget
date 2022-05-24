@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+@first_user = User.create(name: 'Arnold')
+
+@first_category = Category.create(user: @first_user, name: 'Medical')
+
+@first_operation = Operation.create(author: @first_user, name: 'Cough Syrup')
+
+@first_categorization = Categorization.create(operation: @first_operation, category: @first_category)
