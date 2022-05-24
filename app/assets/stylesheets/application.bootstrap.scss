@@ -3,6 +3,8 @@
   src: url('/assets/FontsFree-Net-Proxima-Nova-Bold.otf');
   font-family: 'Proxima Nova Light';
   src: url('/assets/FontsFree-Net-FontsFree-Net-Proxima-Nova-2.ttf');
+  font-family: 'Playball Regular';
+  src: url('/assets/Playball-Regular.ttf');
 }
 
 .btn-primary {
@@ -20,6 +22,11 @@ h1 {
 h2 {
   font-family: 'Proxima Nova Light', sans-serif;
   color: #434b54;
+}
+
+.app-name {
+  font-family: 'Playball Regular', sans-serif;
+  font-size: 2.5rem;
 }
 
 @import 'bootstrap/scss/bootstrap';
