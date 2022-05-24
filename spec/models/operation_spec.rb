@@ -9,7 +9,7 @@ RSpec.describe Operation, type: :model do
     end
 
     subject do 
-      @operation = Operation.new(author: @user)
+      @operation = Operation.new(author: @user, name: 'Dinner delivery')
     end
 
     before { subject.save }
