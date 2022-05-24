@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Categorization, type: :model do
   describe 'Test associations' do
-
     before(:all) do
       @user = User.create(name: 'Arnold')
 
@@ -11,7 +10,7 @@ RSpec.describe Categorization, type: :model do
       @operation = Operation.create(author: @user, name: 'Cough Syrup')
     end
 
-    subject do 
+    subject do
       @categorization = Categorization.new(operation: @operation, category: @category)
     end
 

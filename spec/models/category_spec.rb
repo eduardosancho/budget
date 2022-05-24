@@ -2,13 +2,12 @@ require 'rails_helper'
 
 RSpec.describe Category, type: :model do
   describe 'Test validations' do
-
     before(:all) do
       @user = User.new(name: 'Arnold')
       @user.save
     end
 
-    subject do 
+    subject do
       @category = Category.new(user: @user, name: 'Groceries')
     end
 
