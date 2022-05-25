@@ -10,7 +10,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class='m-4'>
+  <body>
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: "alert alert-#{name}" %>
     <% end -%>
