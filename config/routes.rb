@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations'}
   devise_scope :user do
     authenticated :user do
       root "categories#index", as: :authenticated_root
