@@ -23,6 +23,11 @@ nav {
   color: white;
 }
 
+.muted-link {
+  color: $text-color;
+  text-decoration: none;
+}
+
 h1 {
   font-family: 'Proxima Nova Bold', sans-serif;
 }
