@@ -1,9 +1,5 @@
 <div class='text-center'>
   <%= form_for(resource, as: resource_name, url: user_registration_path, html: {class: 'd-flex flex-column', 'data-turbo': 'false'}) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-    <% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: "alert alert-#{name}" %>
-    <% end -%>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-2">
       <div class="container-fluid">
         <%= link_to unauthenticated_root_path, class:'text-light' do %>
@@ -17,6 +13,10 @@
         </div>
       </div>
     </nav>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: "alert #{name}-danger" %>
+    <% end -%>
 
     <div class="field">
       <%= f.text_field :name, class: 'w-100 form-control input-lg', autofocus: true, autocomplete: "name", placeholder:'Full name' %>
