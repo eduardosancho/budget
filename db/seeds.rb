@@ -6,7 +6,11 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-@first_user = User.create(name: 'Arnold')
+User.destroy_all
+
+@first_user = User.new(name: 'Arnold', email: 'first@email.com', password: '123456', password_confirmation: '123456')
+@first_user.skip_confirmation!
+@first_user.save!
 
 @first_category = Category.create(user: @first_user, name: 'Medical')
 

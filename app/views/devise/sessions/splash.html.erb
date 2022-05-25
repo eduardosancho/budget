@@ -1,0 +1,10 @@
+<% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: "alert alert-#{name} fixed-top" %>
+  <% end -%>
+<div class="splash-screen position-relative vh-100">
+  <h1 class='app-name position-absolute bottom-50 vw-100 text-center'>Budget App</h1>
+  <div class="splash-buttons d-grid gap-2 vw-100 position-absolute bottom-0 mb-4">
+    <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary w-75 mx-auto' %>
+    <%= link_to 'Log In', new_user_session_path, class: 'btn w-75 mx-auto' %>
+  </div>
+</div>
