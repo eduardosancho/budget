@@ -18,7 +18,7 @@ RSpec.describe 'Devise', type: :request do
     end
 
     it 'response body has expected title text' do
-      expect(response.body).to include('Log in')
+      expect(response.body).to include('Log In')
     end
   end
 end
