@@ -1,6 +1,8 @@
 <div class='text-center'>
   <%= form_for(resource, as: resource_name, url: user_session_path, html: {class: 'd-flex flex-column', 'data-turbo': 'false'}) do |f| %>
-
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+    <% end -%>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-2">
       <div class="container-fluid">
         <%= link_to :back, class:'text-light' do %>
@@ -11,21 +13,6 @@
         <h3 class='m-0 ps-4'>Log In</h3>
         <div class="actions">
           <%= f.submit "Log In", class:'btn text-light' %>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <% if signed_in? %>
-              <li class="nav-item ms-lg-auto">
-                <%= link_to "Edit User", edit_user_registration_path, class: 'nav-link' %>              
-              </li>
-              <li class="nav-item d-flex align-items-center">
-                <%= button_to "Log Out", destroy_user_session_path, class: 'bg-transparent nav-link px-1 py-0 ', method: :delete  %>              
-              </li>
-            <% end %>
-          </ul>
         </div>
       </div>
     </nav>
