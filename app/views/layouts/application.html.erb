@@ -23,14 +23,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <%= link_to "Categories", categories_path, :class => current_class?(categories_path) %>
             </li>
             <% if signed_in? %>
               <li class="nav-item ms-lg-auto">
                 <%= link_to "Edit User", edit_user_registration_path, class: 'nav-link' %>              
               </li>
               <li class="nav-item d-flex align-items-center">
-                <%= button_to "Log Out", destroy_user_session_path, class: 'bg-transparent nav-link px-1 py-0 ', method: :delete  %>              
+                <%= button_to "Log Out", destroy_user_session_path, class: ' btn btn-outline-light px-1 py-0 ', method: :delete  %>              
               </li>
             <% end %>
           </ul>
