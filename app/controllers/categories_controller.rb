@@ -4,4 +4,8 @@ class CategoriesController < ApplicationController
   def new_splash
     render 'devise/sessions/splash', layout: 'splash'
   end
+
+  def index
+    @page_title = 'Categories'
+  end
 end

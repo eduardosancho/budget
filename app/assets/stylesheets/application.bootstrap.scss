@@ -7,21 +7,24 @@
   src: url('/assets/Playball-Regular.ttf');
 }
 
-.btn-primary {
-  background-color: #3778c2;
+$primary: #3778c2;
+$secondary: #5fb523;
+$text-color: #434b54;
+
+body {
+  color: $text-color !important;
+
+  p {
+    font-family: 'Proxima Nova Light', sans-serif;
+  }
 }
 
-.btn-secondary {
-  background-color: #5fb523;
+nav {
+  color: white;
 }
 
 h1 {
   font-family: 'Proxima Nova Bold', sans-serif;
-}
-
-h2 {
-  font-family: 'Proxima Nova Light', sans-serif;
-  color: #434b54;
 }
 
 .app-name {
