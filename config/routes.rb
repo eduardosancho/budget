@@ -8,4 +8,6 @@ Rails.application.routes.draw do
       root 'users/splash/', as: :unauthenticated_root, action: :new_splash, controller: 'categories'
     end
   end
+  
+  resources :categories
 end

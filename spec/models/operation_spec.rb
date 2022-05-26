@@ -24,8 +24,8 @@ RSpec.describe Operation, type: :model do
       expect(subject).to_not be_valid
     end
 
-    it 'should have a default amount of 0' do
-      expect(subject.amount).to eql 0
+    it 'should have a default amount of 0.00' do
+      expect(subject.amount).to eql 0.00
     end
   end
 end

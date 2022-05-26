@@ -8,6 +8,8 @@ gem 'devise'
 gem 'cssbundling-rails' # Install bootstrap 5
 gem 'jsbundling-rails' # needed for bootstrap javascript
 
+gem 'image_processing', '~> 1.2'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.3'
 

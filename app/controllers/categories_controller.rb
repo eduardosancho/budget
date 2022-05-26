@@ -7,5 +7,31 @@ class CategoriesController < ApplicationController
 
   def index
     @page_title = 'Categories'
+    @categories = current_user.categories
+  end
+
+  def new
+    @page_title = 'Categories'
+    @category = Category.new
+  end
+
+  def create
+    @category = Category.new(category_params)
+    @category.user = current_user
+    respond_to do |format|
+      if @category.save
+        flash[:success] = 'Category has been created successfully'
+        format.html { redirect_to categories_url }
+      else
+        flash[:danger] = 'Error: Category could not be created'
+        format.html { render :new, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  private
+
+  def category_params
+    params.require(:category).permit(:name, :icon)
   end
 end

@@ -12,8 +12,9 @@ User.destroy_all
 @first_user.skip_confirmation!
 @first_user.save!
 
-@first_category = Category.create(user: @first_user, name: 'Medical')
+@first_category = Category.create(user: @first_user, name: 'Travel')
+@first_category.icon.attach(io: File.open('app/assets/images/planet.png'), filename: 'planet.png')
 
-@first_operation = Operation.create(author: @first_user, name: 'Cough Syrup')
+@first_operation = Operation.create(author: @first_user, name: 'Plane Tickets', amount: 5.12)
 
 @first_categorization = Categorization.create(operation: @first_operation, category: @first_category)
