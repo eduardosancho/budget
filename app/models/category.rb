@@ -17,4 +17,8 @@ class Category < ApplicationRecord
     acceptable_types = ['image/jpeg', 'image/png']
     errors.add(:icon, 'must be a JPEG or PNG') unless acceptable_types.include?(icon.content_type)
   end
+
+  def category_name
+    "#{name}"
+  end
 end
