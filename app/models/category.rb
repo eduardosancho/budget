@@ -12,7 +12,7 @@ class Category < ApplicationRecord
   def acceptable_icon
     return unless icon.attached?
 
-    errors.add(:icon, 'is too big') unless icon.byte_size <= 1.megabyte
+    errors.add(:icon, 'is too big') unless icon.byte_size <= 5.megabyte
 
     acceptable_types = ['image/jpeg', 'image/png']
     errors.add(:icon, 'must be a JPEG or PNG') unless acceptable_types.include?(icon.content_type)
