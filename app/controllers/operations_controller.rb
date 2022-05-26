@@ -1,4 +1,6 @@
 class OperationsController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_category, only: %i[new_two show create_two]
 
   def index
