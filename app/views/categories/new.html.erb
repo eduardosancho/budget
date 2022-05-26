@@ -11,13 +11,13 @@
     </div>
   <% end %>
   <h3 class='mb-2 align-self-center'>New Category</h3>
-  <div class="mb-3">
+  <div class="field mb-3">
     <%= form.label :name %>
     <%= form.text_field :name, placeholder: "Enter the food", class: 'form-control' %>
   </div>
-   <div class="mb-3">
+  <div class="field mb-3">
     <%= form.label :icon %>
-    <%= form.text_field :icon, placeholder: "Enter an icon url", class: 'form-control' %>
+    <%= form.file_field :icon, class: 'form-control' %>
   </div>
   <%= form.submit 'Submit', class:"btn btn-primary"%>
 

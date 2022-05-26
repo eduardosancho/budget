@@ -4,5 +4,17 @@ class Category < ApplicationRecord
   has_many :categorizations, dependent: :destroy
   has_many :operations, through: :categorizations, dependent: :destroy
 
+  has_one_attached :icon, dependent: :destroy
+  validate :acceptable_icon
+
   validates :name, presence: true
+
+  def acceptable_icon
+    return unless icon.attached?
+
+    errors.add(:icon, 'is too big') unless icon.byte_size <= 1.megabyte
+
+    acceptable_types = ['image/jpeg', 'image/png']
+    errors.add(:icon, 'must be a JPEG or PNG') unless acceptable_types.include?(icon.content_type)
+  end
 end
