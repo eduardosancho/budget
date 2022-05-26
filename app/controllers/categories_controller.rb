@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  load_and_authorize_resource
+
   skip_before_action :authenticate_user!, only: :new_splash
   before_action :set_category, only: :show
 
