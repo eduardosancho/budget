@@ -1,7 +1,7 @@
 <h4 class='text-center mt-2'>From <%= @category.name %>:</h4>
 <div class='operations-list'>
   <ul class='list-group d-flex flex-column'>
-    <% @category.operations.each do |operation| %>
+    <% @category.recent_transactions.each do |operation| %>
       <%= render 'operations/operation_card', operation: operation %>
     <% end %>
     <%= category_operations?(@category) %>

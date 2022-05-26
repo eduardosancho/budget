@@ -21,4 +21,8 @@ class Category < ApplicationRecord
   def category_name
     name.to_s
   end
+
+  def recent_transactions
+    operations.order(created_at: :desc)
+  end
 end
