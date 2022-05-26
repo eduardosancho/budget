@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   end
   
   resources :categories
+  resources :operations, only: [:index, :new, :create, :show]
+  
+  get 'categories/:category_id/operations/new_two', as: 'new_transaction', action: :new_two, controller: :operations
+  post 'categories/:category_id/operations', as: 'create_transaction', action: :create_two, controller: :operations
 end

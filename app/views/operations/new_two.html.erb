@@ -1,0 +1,23 @@
+<%= form_with(model: @operation, url: create_transaction_path(@category), method: :post, scope: @operation,
+  html: { class: 'operation-form-new d-flex flex-column m-4' }, data: { turbo: false }) do |form| %>
+  <% if @operation.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@operation.errors.count, "error") %> prohibited this category from being saved:</h2>
+      <ul>
+        <% @operation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h3 class='mb-2 align-self-center'>New transaction</h3>
+  <div class="field mb-3">
+    <%= form.label :name %>
+    <%= form.text_field :name, placeholder: "Enter a transaction name", class: 'form-control' %>
+  </div>
+  <div class="field mb-3">
+    <%= form.label :amount %>
+    <%= form.number_field :amount, step: '0.01', value: 0.0, class: 'form-control' %>
+  </div>
+  <%= form.submit 'Submit', class:"btn btn-primary"%>
+<% end %>

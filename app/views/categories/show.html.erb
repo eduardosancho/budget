@@ -1,0 +1,16 @@
+<h4 class='text-center mt-2'>Transactions from <%= @category.name %>:</h4>
+<br>
+<h4 class='text-center'>Total: $<%= sprintf('%.2f', @category.operations.sum(:amount)) %></h4>
+<div class='operations-list'>
+  <ul class='list-group d-flex flex-column'>
+    <% @category.recent_transactions.each do |operation| %>
+      <%= render 'operations/operation_card', operation: operation %>
+    <% end %>
+    <%= category_operations?(@category) %>
+  </ul>
+</div>
+<footer class="footer vw-100 py-3 bg-secondary fixed-bottom">
+  <div class='d-flex justify-content-center'>
+    <%= link_to 'Create transaction', new_transaction_path(@category), class:'btn btn-outline-light w-75' %>
+  </div>
+</footer>
