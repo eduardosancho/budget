@@ -1,4 +1,4 @@
 <li class='list-group-item m-2 border' id='<%= dom_id category %>'>
-  <%= image_tag category.icon.variant(resize_to_limit: [75, nil]) %>
+  <%= image_tag(category.icon.variant(resize_to_limit: [75, nil]) || 'https://picsum.photos/100', size: '75') %>
   <%= category.name %>
 </li>
