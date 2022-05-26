@@ -24,26 +24,33 @@
             </svg>
           <% end %>
         <% end %>
-        <h3 class='m-0 d-lg-none'><%= @page_title %></h3>
-        <h4 class='d-none d-lg-block d-xl-none m-0'>Budget App</h4>
-        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" fill="currentColor" class="bi bi-search d-lg-none" viewBox="0 0 16 16">
-          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-        </svg>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav container-fluid mb-2 mb-lg-0">
-            <li class="nav-item">
-              <%= link_to "Categories", categories_path, :class => current_class?(categories_path) %>
-            </li>
-            <% if signed_in? %>
-              <li class="nav-item ms-lg-auto">
-                <%= link_to "Edit User", edit_user_registration_path, class: 'nav-link ms-auto' %>              
+        <h4 class="m-0 d-lg-none <%= 'flex-fill text-center' unless form_page? %>"><%= @page_title %></h4>
+        <h4 class="d-none d-lg-block d-xl-none m-0 <%= 'flex-fill text-center' unless form_page? %>">Budget App</h4>
+        <% if form_page? %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" fill="currentColor" class="bi bi-search d-lg-none" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+        <% end %>
+        <% if form_page? %>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav container-fluid mb-2 mb-lg-0 ps-4">
+              <li class="nav-item">
+                <%= link_to "Categories", categories_path, :class => current_class?(categories_path) %>
               </li>
-              <li class="nav-item d-flex align-items-center">
-                <%= button_to "Log Out", destroy_user_session_path, class: ' btn btn-outline-light px-1 py-0 ', method: :delete  %>              
+              <li class="nav-item">
+                <%= link_to "Transactions", operations_path, :class => current_class?(operations_path) %>
               </li>
-            <% end %>
-          </ul>
-        </div>
+              <% if signed_in? %>
+                <li class="nav-item ms-lg-auto">
+                  <%= link_to "Edit User", edit_user_registration_path, class: 'nav-link ms-auto' %>              
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                  <%= button_to "Log Out", destroy_user_session_path, class: ' btn btn-outline-light px-1 py-0 ', method: :delete  %>              
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
       </div>
     </nav>
     <% flash.each do |name, msg| -%>
