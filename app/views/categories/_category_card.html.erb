@@ -8,7 +8,7 @@
       <p class='position-absolute bottom-0 text-muted'><%= category.created_at.to_formatted_s(:long) %></p>
     </div>
     <div class='category-total flex-1'>
-      <p>$<%= category.operations.sum(:amount) %></p>
+      <p>$<%= sprintf('%.2f', category.operations.sum(:amount)) %></p>
     </div>
   </div>
 </li>
