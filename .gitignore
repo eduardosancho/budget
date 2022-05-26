@@ -5,6 +5,10 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 node_modules
 
+rootkey.csv
+
+aws
+
 # Ignore bundler config.
 /.bundle
 
