@@ -1,8 +1,9 @@
 <div class='categories-list'>
-  <ul class='list-group'>
+  <ul class='list-group d-flex flex-column'>
     <% @categories.each do |category| %>
       <%= render 'category_card', category: category %>
     <% end %>
+    <%= categories? %>
   </ul>
 </div>
 <footer class="footer vw-100 py-3 bg-secondary fixed-bottom">
