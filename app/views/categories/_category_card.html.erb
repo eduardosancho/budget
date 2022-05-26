@@ -2,7 +2,8 @@
   <li class='list-group-item m-2 border' id='<%= dom_id category %>'>
     <div class='category-card d-flex'>
       <div class='category-icon flex-1'>
-        <%= image_tag(category.icon.variant(resize_to_limit: [75, nil]) || 'https://picsum.photos/100', size: '75') %>
+        <%= image_tag('https://rocky-cliffs-67926-images.s3.amazonaws.com/lrnb66z433rv6oqcmxqc65xmkxqu') %>
+           <%# category.icon.variant(resize_to_limit: [75, nil]) || 'https://picsum.photos/100', size: '75') %>
       </div>
       <div class='category-details positon-relative flex-fill ps-4 pt-2'>
         <p><%= category.name %></p>
