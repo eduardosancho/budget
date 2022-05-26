@@ -1,9 +1,10 @@
+<h4 class='text-center mt-2'>From <%= @category.name %>:</h4>
 <div class='operations-list'>
   <ul class='list-group d-flex flex-column'>
     <% @category.operations.each do |operation| %>
       <%= render 'operations/operation_card', operation: operation %>
     <% end %>
-    <%# <%= operations? %>
+    <%= category_operations?(@category) %>
   </ul>
 </div>
 <footer class="footer vw-100 py-3 bg-secondary fixed-bottom">
