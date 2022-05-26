@@ -20,7 +20,7 @@ class OperationsController < ApplicationController
   end
 
   def new_two
-    @page_title = 'Transactions'
+    @page_title = @category.name
     @operation = Operation.new
     @categorization = Categorization.new
   end
