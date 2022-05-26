@@ -19,6 +19,6 @@ class Category < ApplicationRecord
   end
 
   def category_name
-    "#{name}"
+    name.to_s
   end
 end

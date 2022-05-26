@@ -6,7 +6,7 @@ module OperationsHelper
     end
     out.html_safe
   end
-  
+
   def operations?
     out = ''
     if current_user.operations.empty?

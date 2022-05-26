@@ -1,5 +1,5 @@
 class OperationsController < ApplicationController
-  before_action :set_category, only: [:new_two, :show, :create_two]
+  before_action :set_category, only: %i[new_two show create_two]
 
   def index
     @page_title = 'Transactions'
@@ -41,7 +41,7 @@ class OperationsController < ApplicationController
       end
     end
   end
-  
+
   def create_two
     @operation = Operation.new(operation_params)
     @categorization = Categorization.new
