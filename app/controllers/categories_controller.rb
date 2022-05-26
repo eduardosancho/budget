@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   skip_before_action :authenticate_user!, only: :new_splash
+  before_action :set_category, only: :show
 
   def new_splash
     render 'devise/sessions/splash', layout: 'splash'
@@ -8,6 +9,11 @@ class CategoriesController < ApplicationController
   def index
     @page_title = 'Categories'
     @categories = current_user.categories
+  end
+
+  def show
+    @page_title = 'Transactions'
+    render layout: 'categories_show'
   end
 
   def new
@@ -33,5 +39,9 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name, :icon)
+  end
+
+  def set_category
+    @category = Category.find(params[:id])
   end
 end
