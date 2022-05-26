@@ -1,0 +1,13 @@
+<div class='operations-list'>
+  <ul class='list-group d-flex flex-column'>
+    <% @operations.each do |operation| %>
+      <%= render 'operation_card', operation: operation %>
+    <% end %>
+    <%= operations? %>
+  </ul>
+</div>
+<footer class="footer vw-100 py-3 bg-secondary fixed-bottom">
+  <div class='d-flex justify-content-center'>
+    <%= link_to 'Create transaction', new_operation_path, class:'btn btn-outline-light w-75' %>
+  </div>
+</footer>
