@@ -4,4 +4,10 @@ module ApplicationHelper
 
     'nav-link'
   end
+
+  def form_page?
+    return true unless request.path.include? 'new'
+
+    false
+  end
 end
