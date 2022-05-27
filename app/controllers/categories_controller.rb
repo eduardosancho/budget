@@ -32,7 +32,7 @@ class CategoriesController < ApplicationController
         format.html { redirect_to categories_url }
       else
         flash[:danger] = 'Error: Category could not be created'
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to new_category_url }
       end
     end
   end

@@ -39,7 +39,7 @@ class OperationsController < ApplicationController
         format.html { redirect_to operations_url }
       else
         flash[:danger] = 'Error: Transaction could not be created'
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to new_operation_path }
       end
     end
   end
@@ -57,7 +57,7 @@ class OperationsController < ApplicationController
         format.html { redirect_to category_url(@category) }
       else
         flash[:danger] = 'Error: Transaction could not be created'
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to new_transaction_path(@category) }
       end
     end
   end
