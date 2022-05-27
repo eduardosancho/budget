@@ -9,7 +9,7 @@ RSpec.describe Categorization, type: :model do
 
       @category = Category.create(user: @user, name: 'Medical')
 
-      @operation = Operation.create(author: @user, name: 'Cough Syrup')
+      @operation = Operation.create(author: @user, name: 'Cough Syrup', amount: 1.01, categories: [@category])
     end
 
     subject do

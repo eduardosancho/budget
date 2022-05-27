@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_223324) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "icon"
+    t.integer "operations_counter", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false

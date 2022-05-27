@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to authenticated_root_url, alert: exception.message
+    redirect_to categories_url, alert: exception.message
   end
 
   protected

@@ -5,9 +5,11 @@ class Category < ApplicationRecord
   has_many :operations, through: :categorizations, dependent: :destroy
 
   has_one_attached :icon, dependent: :destroy
+  # validates_presence_of :icon
   validate :acceptable_icon
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: { case_sensitive: false }, allow_blank: false,
+                   format: { with: /\A[a-zA-Z0-9]+\z/ }
 
   def acceptable_icon
     return unless icon.attached?

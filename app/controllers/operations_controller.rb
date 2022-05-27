@@ -27,37 +27,32 @@ class OperationsController < ApplicationController
 
   def create
     @operation = Operation.new(operation_params)
-    @category = Category.find_by(name: params[:categorization][:category])
     @categorization = Categorization.new
+    @category_name = params[:categorization][:category]
+    @operation.categories = [Category.find_by(name: @category_name)] unless @category_name.empty?
     @operation.author = current_user
     respond_to do |format|
       if @operation.save
-        @categorization.operation = @operation
-        @categorization.category = @category
-        @categorization.save
         flash[:success] = 'Transaction has been created successfully'
         format.html { redirect_to operations_url }
       else
         flash[:danger] = 'Error: Transaction could not be created'
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to new_operation_path }
       end
     end
   end
 
   def create_two
     @operation = Operation.new(operation_params)
-    @categorization = Categorization.new
     @operation.author = current_user
+    @operation.categories = [@category]
     respond_to do |format|
       if @operation.save
-        @categorization.operation = @operation
-        @categorization.category = @category
-        @categorization.save
         flash[:success] = 'Transaction has been created successfully'
         format.html { redirect_to category_url(@category) }
       else
         flash[:danger] = 'Error: Transaction could not be created'
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to new_transaction_path(@category) }
       end
     end
   end
