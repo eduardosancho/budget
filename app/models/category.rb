@@ -8,8 +8,7 @@ class Category < ApplicationRecord
   # validates_presence_of :icon
   validate :acceptable_icon
 
-  validates :name, presence: true, uniqueness: { case_sensitive: false }, allow_blank: false,
-                   format: { with: /\A[a-zA-Z0-9]+\z/ }
+  validates :name, presence: true
 
   def acceptable_icon
     return unless icon.attached?
