@@ -7,7 +7,7 @@ class Category < ApplicationRecord
   has_one_attached :icon, dependent: :destroy
   validate :acceptable_icon
 
-  validates :name, presence: true, uniqueness: { case_sensitive: false }, presence: true, allow_blank: false,
+  validates :name, presence: true, uniqueness: { case_sensitive: false }, allow_blank: false,
                    format: { with: /\A[a-zA-Z0-9]+\z/ }
 
   def acceptable_icon
