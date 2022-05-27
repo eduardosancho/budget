@@ -5,6 +5,6 @@ class Operation < ApplicationRecord
   has_many :categories, through: :categorizations, dependent: :destroy
 
   validates :name, presence: true
-  validates :amount, presence: true
+  validates :amount, presence: true, numericality: { only_decimal: true, greater_than: 0 }
   validates :categories, presence: true
 end

@@ -8,16 +8,16 @@ RSpec.describe Operation, type: :model do
       @user.skip_confirmation!
       @user.save
 
-      @category = Category.create(user: @user, name: 'Medical')
+      @category = Category.create(user: @user, name: 'Running')
     end
 
     subject do
-      @operation = Operation.new(author: @user, name: 'Diesel', categories: [@category])
+      @operation = Operation.new(author: @user, name: 'Diesel', amount: 2.02, categories: [@category])
     end
 
     before { subject.save }
 
-    it 'should be valid if it has an author' do
+    it 'should be valid if it has an author, name, amount, and categories' do
       expect(subject).to be_valid
     end
 
@@ -26,8 +26,8 @@ RSpec.describe Operation, type: :model do
       expect(subject).to_not be_valid
     end
 
-    it 'should have a default amount of 0.00' do
-      expect(subject.amount).to eql 0.00
+    it 'should have a default amount of 2.02' do
+      expect(subject.amount).to eql 2.02
     end
   end
 end
