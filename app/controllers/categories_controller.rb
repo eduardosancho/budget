@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
 
   def index
     @page_title = 'Categories'
-    @categories = current_user.categories
+    @categories = current_user.categories.order(updated_at: :desc)
   end
 
   def show
