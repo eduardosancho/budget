@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <h3 class='mb-2 align-self-center'>New transaction</h3>
+  <h3 class='mb-2 align-self-center'>New transaction for <%= @category.name %></h3>
   <div class="field mb-3">
     <%= form.label :name %>
     <%= form.text_field :name, placeholder: "Enter a transaction name", class: 'form-control' %>
