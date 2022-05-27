@@ -33,5 +33,5 @@
     <%= form.label :category %>
     <%= collection_select(:categorization, :category, current_user.categories, :name, :category_name, prompt: true) %>
   </div>
-  <%= form.submit 'Submit', class:"btn btn-primary"%>
+  <%= form.submit 'Save Transaction', class:"btn btn-primary"%>
 <% end %>
