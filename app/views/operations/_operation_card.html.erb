@@ -1,0 +1,11 @@
+<li class='list-group-item m-2 border' id='<%= dom_id operation %>'>
+  <div class='operation-card d-flex'>
+    <div class='operation-details positon-relative flex-fill ps-4 pt-2'>
+      <p><%= operation.name %></p>
+      <p class='position-absolute bottom-0 text-muted'><%= operation.created_at.to_formatted_s(:long) %></p>
+    </div>
+    <div class='operation-total flex-1'>
+      <p>$<%= sprintf('%.2f', operation.amount) %></p>
+    </div>
+  </div>
+</li>

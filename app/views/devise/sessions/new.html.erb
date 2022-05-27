@@ -1,0 +1,47 @@
+<div class='text-center'>
+  <%= form_for(resource, as: resource_name, url: user_session_path, html: {class: 'd-flex flex-column', 'data-turbo': 'false'}) do |f| %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-2">
+      <div class="container-fluid">
+        <%= link_to unauthenticated_root_path, class:'text-light' do %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+          </svg>
+        <% end %>
+        <h3 class='m-0 ps-4'>Log In</h3>
+        <div class="actions">
+          <%= f.submit "Log In", class:'btn text-light' %>
+        </div>
+      </div>
+    </nav>
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: "alert #{name}-danger" %>
+    <% end -%>
+
+    <div class="field">
+      <%= f.email_field :email, class: 'w-100 form-control input-lg', autofocus: true, autocomplete: "email", placeholder: 'Email' %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password, class: 'w-100 form-control input-lg', autocomplete: "current-password", placeholder: 'Password' %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field mt-2 mx-auto">
+        <%= f.check_box :remember_me, class:'ms-2' %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+  <% end %>
+  <br>
+
+  <div class='d-flex flex-column align-items-center'>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "Forgot your password?", new_user_password_path, class:'muted-link' %><br />
+    <% end %>
+
+    <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+      <%= link_to "Didn't receive confirmation instructions?", new_user_confirmation_path, class:'muted-link pt-4' %><br />
+    <% end %>
+  </div>
+</div>
+

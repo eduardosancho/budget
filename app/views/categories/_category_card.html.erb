@@ -1,0 +1,16 @@
+<%= link_to category_path(category), class:'text-decoration-none' do %>
+  <li class='list-group-item m-2 border' id='<%= dom_id category %>'>
+    <div class='category-card d-flex'>
+      <div class='category-icon flex-1'>
+          <%= image_tag(category.icon.url || 'https://picsum.photos/100', size: '75') %>
+      </div>
+      <div class='category-details positon-relative flex-fill ps-4 pt-2'>
+        <p><%= category.name %></p>
+        <p class='position-absolute bottom-0 text-muted'><%= category.updated_at.to_formatted_s(:long) %></p>
+      </div>
+      <div class='category-total flex-1'>
+        <p>$<%= sprintf('%.2f', category.operations.sum(:amount)) %></p>
+      </div>
+    </div>
+  </li>
+<% end %>
