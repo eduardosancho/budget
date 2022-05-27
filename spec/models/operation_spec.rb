@@ -7,10 +7,12 @@ RSpec.describe Operation, type: :model do
                        password_confirmation: '123456')
       @user.skip_confirmation!
       @user.save
+
+      @category = Category.create(user: @user, name: 'Medical')
     end
 
     subject do
-      @operation = Operation.new(author: @user, name: 'Diesel')
+      @operation = Operation.new(author: @user, name: 'Diesel', categories: [@category])
     end
 
     before { subject.save }
