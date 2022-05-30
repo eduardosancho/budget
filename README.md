@@ -10,6 +10,8 @@
 ![rails version](https://img.shields.io/badge/Rails-7-red)
 ![ruby version](https://img.shields.io/badge/Ruby-3.x-orange)
 
+[Live Demo](https://rocky-cliffs-67926.herokuapp.com/)
+
 # Preview
 <div style='display: flex'>
   <img src='./screenshot2.png'>
